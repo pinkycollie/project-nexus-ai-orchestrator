@@ -8,7 +8,8 @@ import { ServiceConnections } from "@/components/ServiceConnections";
 import { ProjectOverview } from "@/components/ProjectOverview";
 import { DeploymentStatus } from "@/components/DeploymentStatus";
 import { AIConfiguration } from "@/components/AIConfiguration";
-import { Settings, Zap, GitBranch, Database } from "lucide-react";
+import { FileManagerDialog } from "@/components/FileManagerDialog";
+import { Settings, Zap, GitBranch, Database, Plus } from "lucide-react";
 
 const Index = () => {
   const [connectedServices, setConnectedServices] = useState({
@@ -21,11 +22,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="container mx-auto">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">DevOps Manager</h1>
-          <p className="text-xl text-muted-foreground">
-            Unified dashboard for all your development services
-          </p>
+        <header className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-4xl font-bold mb-2">DevOps Manager</h1>
+            <p className="text-xl text-muted-foreground">
+              Unified dashboard for all your development services
+            </p>
+          </div>
+          <FileManagerDialog>
+            <Button size="lg" className="gap-2">
+              <Plus className="h-5 w-5" />
+              Create File/Folder
+            </Button>
+          </FileManagerDialog>
         </header>
 
         <Tabs defaultValue="overview" className="w-full">
